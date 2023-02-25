@@ -25,7 +25,4 @@ Post.hasMany(Comment, {
     onDelete: 'CASCADE',
 })
 
-
-
-
 module.exports = { Blog_Posts, User };
