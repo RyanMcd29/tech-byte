@@ -24,6 +24,14 @@ Blog_Posts.init(
             type: Datatypes.DATE,
             allowNull: false,
         },
+        user_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            }
+
+        }
     },
     {
         sequelize,
