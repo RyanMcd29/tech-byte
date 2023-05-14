@@ -21,7 +21,7 @@ Blog_Posts.init(
         },
         time_created: {
             type: DataTypes.DATE,
-            allowNull: false,
+            defaultValue: DataTypes.NOW
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -31,6 +31,18 @@ Blog_Posts.init(
             }
         },
     },
+    // {
+    //     hooks: {
+    //         beforeCreate: async (newPostData) => {
+    //             var today = new Date();
+    //             var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    //             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    //             newPostData.time_created = time+' '+date;
+
+    //             return newPostData
+    //         }
+    //     }
+    // }
     {
         sequelize,
         freezeTableName: true,
