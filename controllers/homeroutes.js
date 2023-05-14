@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Post } = require('../models')
+const { User, Post, Comment } = require('../models')
 const withAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
@@ -62,5 +62,34 @@ router.get('/profile', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/post/:id', async (req, res) => {
+    try {
+        console.log("serving post", req.params.id)
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+                {
+                    model: Comment,
+                    attributes: ['body', 'user_id']
+                },
+            ],
+        })
+
+        const post = postData.get({ plain: true });
+        console.log(post)
+
+
+        res.render('post', {
+            ...post,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router;

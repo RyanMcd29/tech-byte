@@ -6,6 +6,9 @@
             <p class="card-text">{{post.body}}</p>
             <p class="card-text"><small class="text-body-secondary">{{post.time_created}}</small></p>
         </div>
+        <div>
+            <a href="/post/{{post.id}}">{{post.title}}</a>
+        </div>
     </div>
 </div>
 {{/each}}

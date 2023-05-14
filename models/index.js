@@ -29,4 +29,4 @@ Comment.hasOne(Post, {
     foreignKey: 'post_id'
 })
 
-module.exports = { Post, User };
+module.exports = { Post, User, Comment };
