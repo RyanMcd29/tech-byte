@@ -1,7 +1,28 @@
 <div class="card mb-3">
     <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
+        <h5 class="card-title">{{title}} by {{user.name}}</h5>
         <p class="card-text">{{body}}</p>
         <p class="card-text"><small class="text-body-secondary">{{time_created}}</small></p>
     </div>
 </div>
+<div>
+    <h3>Comments</h3>
+    <form class="new-comment-form">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="comment-body-label">Add new comment</span>
+            <input type="text" class="form-control" id="comment-body" name="comment-body"/>
+        </div>
+        <button class="btn btn-primary" data-id="{{id}} "type="submit">Create</button>
+    
+    </form>
+    {{#each comments as |comment|}}
+    <div class="card mb-3">
+        <div class="card-body">
+            <p class="card-text">{{comment.body}}</p>
+            <p class="card-text"><small class="text-body-secondary">{{comment.user.name}} at {{comment.time_created}}</small></p>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<script src="../public/js/post.js"></script>
