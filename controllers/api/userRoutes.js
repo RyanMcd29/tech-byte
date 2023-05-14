@@ -16,8 +16,6 @@ router.post('/', async (req, res) => {
             password: req.body.password
         })
         
-
-    
         req.session.save(() => {
             console.log(userData)
             req.session.user_id = userData.id
