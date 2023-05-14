@@ -27,7 +27,7 @@
         <h3>Your Posts:</h3>
 
         {{#each posts as |post|}}
-        <div class="row mb-2">
+        <div class="row mb-2 post-list">
             <div class="row mb-4">
                 <div class="card mb-3">
                     <div class="card-body">
@@ -35,6 +35,7 @@
                         <p class="card-text">{{post.body}}</p>
                         <p class="card-text"><small class="text-body-secondary">{{post.time_created}}</small></p>
                     </div>
+                    <button class="btn btn-sm btn-danger" data-id="{{post.id}}">Delete</button></div>
                 </div>
             </div>
         </div>
