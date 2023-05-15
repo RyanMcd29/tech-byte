@@ -14,7 +14,7 @@ const newPostHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to create post')
         }
@@ -32,7 +32,7 @@ const deleteBtnHandler = async (event) => {
         })
 
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to delete post')
         }
@@ -44,5 +44,7 @@ document
     .querySelector('.new-post-form')
     .addEventListener('submit', newPostHandler)
 
+    
 document
-    .querySelector('.post-delete').addEventListener('click', (event)=>{deleteBtnHandler(event)} )
+    .querySelector('.post-delete')
+    .addEventListener('click', (event)=>{deleteBtnHandler(event)} )
