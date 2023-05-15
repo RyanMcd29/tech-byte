@@ -45,8 +45,6 @@ router.get('/signup', (req, res) => {
 
 router.get('/profile', withAuth, async (req, res) => {
     try {
-        console.log("seesion", req.session.user_id)
-        console.log("profile request received,",req.session.user_id )
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password']},
             include: [{ model: Post }]
@@ -54,6 +52,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
+        console.log("user", user)
         res.render('profile', {
             ...user,
             logged_in: true
@@ -65,7 +64,6 @@ router.get('/profile', withAuth, async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
     try {
-        console.log("serving post", req.params.id)
         const postData = await Post.findByPk(req.params.id, {
             include: [
                 {
@@ -80,8 +78,6 @@ router.get('/post/:id', async (req, res) => {
         })
 
         const post = postData.get({ plain: true });
-        console.log(post)
-
 
         res.render('post', {
             ...post,
