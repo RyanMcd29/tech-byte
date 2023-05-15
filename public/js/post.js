@@ -1,13 +1,13 @@
 const newCommentHandler = async (event) => {
     event.preventDefault();
 
-    console.log('saving new comment')
+    console.log('saving new comment', event.target.getAttribute('data-id'))
 
     try {
         const body = document.querySelector('#comment-body').value.trim();
         const postId = event.target.getAttribute('data-id')
 
-        console.log(postId)
+        console.log("postCommentId", event.target)
 
         if (body) {
             const response = await fetch('/api/comments', {
@@ -28,5 +28,5 @@ const newCommentHandler = async (event) => {
 }
 
 document
-    .querySelector('.new-comment-form')
-    .addEventListener('submit', newCommentHandler)
+    .querySelector('.new-comment-button')
+    .addEventListener('click', (event)=>{newCommentHandler(event)})
