@@ -23,7 +23,8 @@ const newPostHandler = async (event) => {
 
 
 const deleteBtnHandler = async (event) => {
-    if (event.target.hasAttribute('data-id;')) {
+    console.log(event.target.hasAttribute('data-id'))
+    if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
         const response = await fetch(`api/posts/${id}`, {
@@ -44,5 +45,4 @@ document
     .addEventListener('submit', newPostHandler)
 
 document
-    .querySelector('.post-list')
-    .addEventListener('click', deleteBtnHandler)
+    .querySelector('.post-delete').addEventListener('click', (event)=>{deleteBtnHandler(event)} )
