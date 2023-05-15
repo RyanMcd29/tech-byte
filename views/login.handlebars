@@ -1,58 +1,65 @@
-<form class="form login-form" >
-  <div class="mb-3">
-    <label for="email-login" class="form-label">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email-login"
-      aria-describedby="emailHelp"
-    />
-    <div id="emailHelp" class="form-text">
-      We'll never share your email with anyone else.
+<div class="container-md">  
+  <div class="row">
+    <div class="col-lg-6">
+      <form class="form login-form">
+        <h3>Login</h3>
+        <div class="mb-3">
+          <label for="email-login" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email-login"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password-login" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password-login"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-  </div>
-  <div class="mb-3">
-    <label for="password-login" class="form-label">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password-login"
-    />
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
-<form class="form signup-form" >
-  <div class="mb-3">
-    <label for="name-signup" class="form-label">Username</label>
-    <input
-        type="name"
-        class="form-control"
-        id="name-signup"
-    />
-    <label for="email-signup" class="form-label">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email-signup"
-      aria-describedby="emailHelp"
-    />
-    <div id="emailHelp" class="form-text">
-      We'll never share your email with anyone else.
+    <div class="col-lg-6">
+      <form class="form signup-form">
+        <h3>Sign-Up</h3>
+        <div class="mb-3">
+          <label for="name-signup" class="form-label">Username</label>
+          <input
+              type="name"
+              class="form-control"
+              id="name-signup"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email-signup" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email-signup"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        
+        <div class="mb-3">
+          <label for="password-signup" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password-signup"
+          />
+          <div id="passwordHelpBlock" class="form-text">
+              Your password must be at least 8 characters long.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
-  <div class="mb-3">
-    <label for="password-signup" class="form-label">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password-signup"
-    />
-    <div id="passwordHelpBlock" class="form-text">
-        Your password must be at least 8 characters long.
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
 
 <script src="./js/login.js"></script>
